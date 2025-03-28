@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supported Controllers - JioGamesCloud</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+    }
+
+    /* Navbar */
+    .navbar-custom {
+      background-color: #28a745;
+      padding: clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-size: clamp(0.9rem, 4vw, 1.25rem);
+      white-space: nowrap;
+    }
+
+    .navbar-brand img {
+      height: clamp(20px, 5vw, 25px);
+      width: clamp(20px, 5vw, 25px);
+    }
+
+    .beta-badge {
+      background-color: #ffc107;
+      color: black;
+      font-size: clamp(0.5rem, 2vw, 0.7rem);
+      font-weight: 600;
+      padding: clamp(0.1rem, 1vw, 0.15rem) clamp(0.3rem, 2vw, 0.4rem);
+      border-radius: 0.25rem;
+      margin-left: clamp(0.2rem, 1vw, 0.3rem);
+    }
+
+    .btn-custom {
+      background-color: #002D16;
+      color: white;
+      font-weight: 600;
+      border-radius: 1.5rem;
+      padding: clamp(0.3rem, 2vw, 0.5rem) clamp(0.75rem, 3vw, 1.25rem);
+      transition: background-color 0.3s ease;
+      font-size: clamp(0.7rem, 2.5vw, 1rem);
+    }
+
+    .btn-custom:hover {
+      background-color: #004d00;
+    }
+
+    .nav-link {
+      color: #1a1a1a !important;
+      font-weight: 600;
+      font-size: clamp(0.75rem, 2.5vw, 1rem);
+      padding: clamp(0.3rem, 1.5vw, 0.5rem) clamp(0.5rem, 2vw, 0.75rem) !important;
+    }
+
+    /* Supported Controllers Section */
+    .controllers-section {
+      background-color: #000;
+      padding: clamp(2rem, 5vw, 4rem) 0;
+      color: white;
+    }
+
+    .controllers-heading {
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    .controllers-text {
+      font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+      color: #ddd;
+      margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+      line-height: 1.6;
+    }
+
+    .controllers-note {
+      font-size: clamp(0.7rem, 2vw, 0.9rem);
+      color: #888;
+      margin-bottom: clamp(1rem, 3vw, 2rem);
+    }
+
+    .controller-card {
+      background-color: #1a1a1a;
+      border: 2px solid #28a745;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .controller-card:hover {
+      transform: scale(1.05);
+    }
+
+    .controller-card img {
+      width: 100%;
+      height: clamp(150px, 30vw, 200px);
+      object-fit: contain;
+      background-color: #000;
+      padding: 1rem;
+    }
+
+    .controller-name {
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      color: white;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
+    /* Footer Section */
+    .footer-section {
+      background-color: #1a1a1a;
+      padding: clamp(1.5rem, 4vw, 3rem) 0;
+      color: white;
+    }
+
+    .footer-section .connect-heading,
+    .footer-section .download-heading {
+      font-size: clamp(1rem, 3.5vw, 1.5rem);
+      font-weight: 600;
+      margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+    }
+
+    .footer-section .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    .footer-section .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(2rem, 5vw, 2.5rem);
+      height: clamp(2rem, 5vw, 2.5rem);
+      background-color: #28a745;
+      border-radius: 50%;
+      color: white;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .footer-section .social-icon:hover {
+      background-color: #218838;
+    }
+
+    .footer-section .google-play-btn img {
+      width: clamp(120px, 20vw, 150px);
+      height: auto;
+    }
+
+    .footer-section .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: clamp(0.75rem, 2vw, 1.5rem);
+      margin-top: clamp(0.75rem, 2vw, 1.5rem);
+    }
+
+    .footer-section .footer-logo img {
+      width: clamp(20px, 5vw, 30px);
+      height: auto;
+    }
+
+    .footer-section .footer-text {
+      font-size: clamp(0.7rem, 2vw, 0.9rem);
+      color: #ddd;
+    }
+
+    .footer-section .footer-links a {
+      font-size: clamp(0.7rem, 2vw, 0.9rem);
+      color: #ddd;
+      text-decoration: none;
+      margin: 0 clamp(0.3rem, 1vw, 0.5rem);
+      transition: color 0.3s ease;
+    }
+
+    .footer-section .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-section .footer-links span {
+      color: #ddd;
+      font-size: clamp(0.7rem, 2vw, 0.9rem);
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 1200px) {
+      .controller-card img {
+        height: clamp(140px, 28vw, 190px);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .navbar-custom {
+        padding: clamp(0.5rem, 2vw, 0.75rem);
+      }
+
+      .navbar-nav {
+        text-align: center;
+        padding: clamp(0.3rem, 1vw, 0.5rem) 0;
+      }
+
+      .btn-custom.ms-3 {
+        margin: clamp(0.5rem, 2vw, 0.75rem) auto;
+        display: block;
+        width: fit-content;
+      }
+
+      .controllers-section {
+        padding: clamp(1.5rem, 4vw, 3rem) 0;
+      }
+
+      .controllers-heading {
+        font-size: clamp(1.25rem, 4.5vw, 2.5rem);
+      }
+
+      .controllers-text {
+        font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+      }
+
+      .controller-card img {
+        height: clamp(130px, 25vw, 180px);
+      }
+
+      .controller-name {
+        font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+      }
+      .footer-section {
+        padding: clamp(1rem, 3vw, 2rem) 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .controllers-heading {
+        font-size: clamp(1rem, 4vw, 2rem);
+      }
+
+      .controllers-text {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+      }
+
+      .controllers-note {
+        font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+      }
+
+      .controller-card img {
+        height: clamp(120px, 22vw, 160px);
+      }
+
+      .controller-name {
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
+      }
+      .footer-section {
+        padding: clamp(0.75rem, 2vw, 1.5rem) 0;
+      }
+
+      .footer-section .social-icons {
+        flex-wrap: wrap;
+        gap: clamp(0.3rem, 1.5vw, 0.75rem);
+      }
+
+      .footer-section .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-section .footer-logo {
+        margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+      }
+
+      .footer-section .footer-links {
+        margin-top: clamp(0.5rem, 1.5vw, 0.75rem);
+      }
+    }
+
+    @media (max-width: 575px) {
+      .controllers-heading {
+        font-size: clamp(0.9rem, 3.5vw, 1.5rem);
+      }
+
+      .controllers-text {
+        font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+      }
+
+      .controllers-note {
+        font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+      }
+
+      .controller-card img {
+        height: clamp(100px, 20vw, 140px);
+      }
+
+      .controller-name {
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+      }
+      .footer-section .connect-heading,
+      .footer-section .download-heading {
+        font-size: clamp(0.9rem, 3vw, 1.25rem);
+      }
+
+      .footer-section .social-icon {
+        width: clamp(1.75rem, 4vw, 2rem);
+        height: clamp(1.75rem, 4vw, 2rem);
+        font-size: clamp(0.9rem, 2vw, 1rem);
+      }
+
+      .footer-section .google-play-btn img {
+        width: clamp(100px, 18vw, 130px);
+      }
+
+      .footer-section .footer-text {
+        font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+      }
+
+      .footer-section .footer-links a,
+      .footer-section .footer-links span {
+        font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .controllers-heading {
+        font-size: clamp(0.8rem, 3vw, 1.25rem);
+      }
+
+      .controller-card img {
+        height: clamp(90px, 18vw, 120px);
+      }
+
+      .controller-name {
+        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+      }
+    }
+
+    @media (max-width: 230px) {
+      .navbar-brand {
+        font-size: clamp(0.7rem, 3vw, 0.9rem);
+      }
+
+      .navbar-brand img {
+        height: clamp(15px, 4vw, 20px);
+        width: clamp(15px, 4vw, 20px);
+      }
+
+      .beta-badge {
+        font-size: clamp(0.4rem, 1.5vw, 0.5rem);
+        padding: clamp(0.05rem, 0.5vw, 0.1rem) clamp(0.2rem, 1vw, 0.3rem);
+      }
+
+      .nav-link {
+        font-size: clamp(0.6rem, 2vw, 0.75rem);
+        padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.3rem, 1.5vw, 0.5rem) !important;
+      }
+
+      .btn-custom {
+        padding: clamp(0.2rem, 1vw, 0.25rem) clamp(0.4rem, 2vw, 0.5rem);
+        font-size: clamp(0.6rem, 2vw, 0.875rem);
+      }
+
+      .controllers-heading {
+        font-size: clamp(0.7rem, 2.5vw, 1rem);
+      }
+
+      .controllers-text {
+        font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+      }
+
+      .controllers-note {
+        font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+      }
+
+      .controller-card img {
+        height: clamp(80px, 15vw, 100px);
+      }
+
+      .controller-name {
+        font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+      }
+      .footer-section {
+        padding: clamp(0.5rem, 1.5vw, 1rem) 0;
+      }
+
+      .footer-section .connect-heading,
+      .footer-section .download-heading {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+      }
+
+      .footer-section .social-icon {
+        width: clamp(1.5rem, 3.5vw, 1.75rem);
+        height: clamp(1.5rem, 3.5vw, 1.75rem);
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+      }
+
+      .footer-section .google-play-btn img {
+        width: clamp(90px, 16vw, 110px);
+      }
+
+      .footer-section .footer-text {
+        font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+      }
+
+      .footer-section .footer-links a,
+      .footer-section .footer-links span {
+        font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+        margin: 0 clamp(0.2rem, 0.8vw, 0.3rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="text-white fw-bold">JioGamesCloud</span>
+        <span class="beta-badge">Beta</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="games.html" target="">Games</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Controllers</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+        <button class="btn btn-custom ms-3 d-lg-none">
+          Start Free Trial
+        </button>
+      </div>
+      <button class="btn btn-custom ms-3 d-none d-lg-block">
+        Start Free Trial
+      </button>
+    </div>
+  </nav>
+
+  <!-- Supported Controllers Section -->
+  <section class="controllers-section">
+    <div class="container text-center">
+      <h2 class="controllers-heading">Supported Controllers</h2>
+      <p class="controllers-text">
+        Discover limitless gaming with our extensive list of supported controllers for JioGamesCloud! Unleash the power of precision, comfort, and compatibility for immersive gameplay.
+      </p>
+      <p class="controllers-note">
+        Note: These are the controllers we have tested and verified with our platform. Our platform usually supports all gaming controllers, but we have only verified these controllers so far.
+      </p>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Controller 1 -->
+        <div class="col">
+          <div class="controller-card">
+            <img src="https://cloud.jiogames.com/common/assets/media/gamepad/jio.png" alt="Jio Controller">
+            <p class="controller-name">Jio Game Controller</p>
+          </div>
+        </div>
+        <!-- Controller 2 -->
+        <div class="col">
+          <div class="controller-card">
+            <img src="https://cloud.jiogames.com/common/assets/media/gamepad/duel-shock-ps4.png" alt="DualShock PS4">
+            <p class="controller-name">PS4 DualShock 4 Controller</p>
+          </div>
+        </div>
+        <!-- Controller 3 -->
+        <div class="col">
+          <div class="controller-card">
+            <img src="https://cloud.jiogames.com/common/assets/media/gamepad/logitech-f310.png" alt="Logitech F310">
+            <p class="controller-name">Logitech F310 Controller</p>
+          </div>
+        </div>
+        <!-- Controller 4 -->
+        <div class="col">
+          <div class="controller-card">
+            <img src="https://cloud.jiogames.com/common/assets/media/gamepad/xbox-wireless.png" alt="Xbox Wireless">
+            <p class="controller-name">Xbox Series XLS Wireless controller</p>
+          </div>
+        </div>
+        <!-- Controller 5 -->
+        <div class="col">
+          <div class="controller-card">
+            <img src="https://cloud.jiogames.com/common/assets/media/gamepad/redgear-wireless.png" alt="Redgear Wireless">
+            <p class="controller-name">Redgear Pro Controller</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container text-center">
+      <!-- Connect With Us -->
+      <h3 class="connect-heading">Connect With Us</h3>
+      <div class="social-icons mb-4">
+        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-discord"></i></a>
+      </div>
+      <!-- Download Our App -->
+      <h3 class="download-heading">Download Our App</h3>
+      <a
+        href="https://play.google.com/store/apps/details?id=com.jio.jiogames"
+        target="_blank"
+        class="google-play-btn mb-4"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Google_Play_2022_logo.svg"
+          alt="Get it on Google Play"
+        />
+      </a>
+      <!-- Footer Bottom -->
+      <div
+        class="footer-bottom d-flex flex-wrap justify-content-between align-items-center"
+      >
+        <div class="footer-logo">
+          <img
+            src="https://cloud.jiogames.com/common/assets/media/icons/jio.svg"
+            alt="Jio Logo"
+          />
+        </div>
+        <p class="footer-text mb-0">
+          © Copyright © 2025 Reliance Jio Infocomm Ltd. All rights reserved.
+        </p>
+        <div class="footer-links">
+          <a href="#">Support</a>
+          <span>|</span>
+          <a href="#">Terms</a>
+          <span>|</span>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
