@@ -12,7 +12,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
       * {
         margin: 0;
@@ -52,7 +56,7 @@
         margin-left: clamp(0.2rem, 1vw, 0.3rem);
       }
       .btn-custom {
-        background-color:#002D16;
+        background-color: #002d16;
         color: white;
         font-weight: 600;
         border-radius: 3rem;
@@ -62,6 +66,7 @@
       }
       .btn-custom:hover {
         background-color: #004d00;
+        color: white;
       }
       .nav-link {
         color: #1a1a1a !important;
@@ -535,42 +540,69 @@
 
       /* Back to Top Button */
       .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color:#14B866;
-            color: #fff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-            text-align: center;
-            line-height: 50px;
-            text-decoration: none;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-            animation: float 3s infinite ease-in-out;
+        position: fixed;
+        bottom: clamp(10px, 3vw, 20px); /* Scales between 10px and 20px */
+        right: clamp(10px, 3vw, 20px); /* Scales between 10px and 20px */
+        background-color: #14b866;
+        color: #fff;
+        border-radius: 50%;
+        width: clamp(40px, 10vw, 50px); /* Scales between 40px and 50px */
+        height: clamp(40px, 10vw, 50px); /* Scales between 40px and 50px */
+        font-size: clamp(
+          1rem,
+          4vw,
+          1.5rem
+        ); /* Scales between 1rem and 1.5rem */
+        text-align: center;
+        line-height: clamp(
+          40px,
+          10vw,
+          50px
+        ); /* Matches height for vertical centering */
+        text-decoration: none;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        animation: float 3s infinite ease-in-out;
+      }
+
+      .back-to-top:hover {
+        opacity: 1;
+        background-color: #14b866;
+        transform: scale(1.1);
+        animation: bounceSpin 0.8s ease infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
         }
-        .back-to-top:hover {
-            opacity: 1;
-            background-color:#14B866;
-            transform: scale(1.1);
-            animation: bounceSpin 0.8s ease infinite;
+        50% {
+          transform: translateY(-10px);
         }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+        100% {
+          transform: translateY(0);
         }
-        @keyframes bounceSpin {
-            0% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(90deg); }
-            50% { transform: translateY(0) rotate(180deg); }
-            75% { transform: translateY(-5px) rotate(270deg); }
-            100% { transform: translateY(0) rotate(360deg); }
+      }
+
+      @keyframes bounceSpin {
+        0% {
+          transform: translateY(0) rotate(0deg);
         }
+        25% {
+          transform: translateY(-10px) rotate(90deg);
+        }
+        50% {
+          transform: translateY(0) rotate(180deg);
+        }
+        75% {
+          transform: translateY(-5px) rotate(270deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
 
       /* Media Queries */
       @media (max-width: 1200px) {
@@ -849,11 +881,6 @@
         .free-trial-section .devices-img {
           max-width: clamp(200px, 55vw, 350px);
         }
-        .back-to-top {
-          width: clamp(2rem, 5vw, 2.5rem);
-          height: clamp(2rem, 5vw, 2.5rem);
-          font-size: clamp(0.9rem, 2vw, 1rem);
-        }
       }
       @media (max-width: 230px) {
         .navbar-brand {
@@ -1032,11 +1059,6 @@
           font-size: clamp(0.5rem, 1.2vw, 0.7rem);
           margin: 0 clamp(0.2rem, 0.8vw, 0.3rem);
         }
-        .back-to-top {
-          width: clamp(1.75rem, 4vw, 2rem);
-          height: clamp(1.75rem, 4vw, 2rem);
-          font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-        }
       }
     </style>
   </head>
@@ -1066,10 +1088,14 @@
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="#">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
-            <li class="nav-item"><a class="nav-link" href="games.html" target="_blank">Games</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="games.html" target="_blank">Games</a>
+            </li>
             <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="cntrl.html" target="_blank">Controllers</a>
+              <a class="nav-link" href="cntrl.html" target="_blank"
+                >Controllers</a
+              >
             </li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
           </ul>
@@ -1519,11 +1545,21 @@
         <!-- Connect With Us -->
         <h3 class="connect-heading">Connect With Us</h3>
         <div class="social-icons mb-4">
-          <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" class="social-icon"><i class="fa-brands fa-discord"></i></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-discord"></i
+          ></a>
         </div>
         <!-- Download Our App -->
         <h3 class="download-heading">Download Our App</h3>
